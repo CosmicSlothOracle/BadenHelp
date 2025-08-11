@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baden Begleiter – 24/7 Alltagshilfe in Baden‑Baden</title>
+  <meta name="description" content="Soforthilfe im Alltag – Einkauf, Begleitung, Formulare & Zuschüsse, Technik. 24/7 erreichbar in Baden‑Baden & Umgebung." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#0E2233; --secondary:#2FB7B0; --accent:#FF5A4F; --surface:#F5F7F2; --text:#0B0E11; --muted:#7A8A99;
+      --radius:14px; --shadow:0 6px 24px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--surface); color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height:1.6}
+    a{color:var(--primary)} a:hover{opacity:.9}
+    .wrap{max-width:1100px; margin:auto; padding: clamp(16px, 3vw, 32px)}
+    header{background:white; position:sticky; top:0; z-index:20; box-shadow:0 2px 10px rgba(0,0,0,.04)}
+    .nav{display:flex; align-items:center; gap:16px; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{display:inline-block; width:40px; height:40px}
+    .wordmark{font: 800 20px/1 Montserrat, sans-serif; color:var(--primary)}
+    .cta{display:flex; gap:10px}
+    .btn{appearance:none; border:none; border-radius:999px; padding:12px 18px; font-weight:600; cursor:pointer}
+    .btn-primary{background:var(--accent); color:white}
+    .btn-ghost{background:transparent; color:var(--primary); border:2px solid var(--primary)}
+
+    .hero{display:grid; grid-template-columns: 1.1fr .9fr; gap: clamp(16px, 4vw, 40px); align-items:center; padding: clamp(20px, 5vw, 60px) 0}
+    .hero h1{font:800 clamp(32px, 5vw, 56px)/1.1 Montserrat, sans-serif; color:var(--primary); margin:0 0 10px}
+    .hero p{font-size: clamp(16px, 2.2vw, 20px); color:#223}
+    .hero .actions{display:flex; gap:12px; margin-top:18px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:var(--secondary); color:white; font-weight:600; width:max-content; margin-top:14px}
+
+    .card-row{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:14px}
+    .chip{display:flex; align-items:center; gap:10px; background:white; border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
+    .chip svg{flex:0 0 22px}
+
+    section{padding: clamp(24px, 6vw, 72px) 0}
+    .cards{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px}
+    .card{background:white; border-radius:var(--radius); box-shadow:var(--shadow); padding:20px}
+    .card h3{margin:0 0 8px; font:700 20px/1.3 Montserrat, sans-serif; color:var(--primary)}
+
+    .steps{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:18px}
+    .step{background:white; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .step .num{display:inline-grid; place-items:center; width:36px; height:36px; border-radius:50%; background:var(--primary); color:white; font-weight:700; margin-bottom:8px}
+
+    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
+
+    .contact{background:white; border-radius:var(--radius); box-shadow:var(--shadow); padding:20px}
+    .contact h3{margin:0 0 10px; font:700 22px/1.2 Montserrat, sans-serif; color:var(--primary)}
+    .contact .list{display:grid; gap:10px}
+    .contact a{display:inline-flex; align-items:center; gap:10px; text-decoration:none}
+
+    footer{padding:28px 0; color:#334}
+    .footer-inner{display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center}
+
+    /* Sticky mobile bar */
+    .stickybar{position:fixed; inset:auto 0 0 0; background:rgba(255,255,255,.98); border-top:1px solid #e6e9ef; display:none; padding:10px; gap:10px; z-index:50}
+    .stickybar .btn{flex:1}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero{grid-template-columns: 1fr}
+      .card-row{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .cards{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .steps{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .grid-2{grid-template-columns: 1fr}
+      .stickybar{display:grid}
+      header{position:static}
+    }
+    @media (max-width: 560px){
+      .card-row{grid-template-columns: 1fr}
+      .cards{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr}
+    }
+
+    /* Minimal focus styles */
+    :is(a,button,input,textarea):focus{outline:3px solid var(--secondary); outline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav" aria-label="Hauptnavigation">
+      <a class="brand" href="#top">
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true" role="img">
+          <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0%" stop-color="var(--accent)"/><stop offset="100%" stop-color="var(--secondary)"/></linearGradient></defs>
+          <rect width="64" height="64" rx="14" fill="var(--primary)"/>
+          <path d="M32 18c-4-6-14-6-18 1c-4 7 3 16 18 25c15-9 22-18 18-25c-4-7-14-7-18-1z" fill="url(#g)"/>
+        </svg>
+        <span class="wordmark">Baden Begleiter</span>
+      </a>
+      <nav class="cta" aria-label="Schnellzugriff">
+        <button class="btn btn-ghost" onclick="scrollToId('leistungen')">Leistungen</button>
+        <button class="btn btn-primary" onclick="callNow()">Jetzt anrufen</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div>
+        <div class="badge" aria-label="Rund um die Uhr verfügbar">24/7 Soforthilfe</div>
+        <h1 id="hero-title">Soforthilfe im Alltag – 24/7 erreichbar</h1>
+        <p>Unterstützung beim Einkauf, Begleitung zu Terminen, Hilfe bei Formularen & Zuschüssen sowie ruhige Technik‑Hilfe – außerhalb der regulären Pflegeleistungen. Für Baden‑Baden und Umgebung.</p>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="openRequest()">Jetzt Hilfe anfordern</button>
+          <button class="btn btn-ghost" onclick="scrollToId('kontakt')">Unverbindlich informieren</button>
+        </div>
+      </div>
+      <figure aria-label="Symbolisches Bild für Alltagshilfe" style="margin:0">
+        <div style="background:white; border-radius:var(--radius); box-shadow:var(--shadow); aspect-ratio:4/3; display:grid; place-items:center">
+          <!-- Placeholder Illustration (inline SVG) -->
+          <svg width="84%" viewBox="0 0 300 200" role="img" aria-label="Illustration: Hand hält Herz">
+            <rect x="0" y="0" width="300" height="200" fill="var(--surface)" rx="12"/>
+            <path d="M150 60c-10-16-34-16-44 3c-10 19 6 40 44 61c38-21 54-42 44-61c-10-19-34-19-44-3z" fill="var(--secondary)"/>
+            <path d="M210 120c-10-3-22 0-31 4c-10 4-18 6-28 4c-6-1-10-6-10-11c0-8 7-13 14-13c9 0 18 1 27 0c10-1 18-9 28-11c9-2 17 1 22 7c4 4 7 10 7 16c0 5-4 9-9 9h-20z" fill="var(--primary)" opacity=".08"/>
+          </svg>
+        </div>
+      </figure>
+    </section>
+
+    <section class="wrap" aria-labelledby="vorteile">
+      <h2 id="vorteile" style="font:800 28px/1.2 Montserrat, sans-serif; color:var(--primary); margin:0 0 14px">Warum wir?</h2>
+      <div class="card-row" role="list">
+        <div class="chip" role="listitem">"+icon("clock")+"<span>24/7 erreichbar (Telefon, WhatsApp, Online)</span></div>
+        <div class="chip" role="listitem">"+icon("care")+"<span>Geprüfte Helfer:innen aus der Region</span></div>
+        <div class="chip" role="listitem">"+icon("paper")+"<span>Formulare & Zuschüsse (ohne Rechtsberatung)</span></div>
+        <div class="chip" role="listitem">"+icon("cart")+"<span>Einkauf & Botengänge – spontan buchbar</span></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="leistungen" aria-labelledby="leistungen-title">
+      <h2 id="leistungen-title" style="font:800 28px/1.2 Montserrat, sans-serif; color:var(--primary); margin:0 0 14px">Leistungen</h2>
+      <div class="cards">
+        <article class="card"><h3>Einkauf & Botengänge</h3><p>Wochen‑ und Apothekeneinkäufe, Abholungen, Postgänge.</p></article>
+        <article class="card"><h3>Begleitung</h3><p>Arzttermine, Klinik, Spaziergänge, Veranstaltungen.</p></article>
+        <article class="card"><h3>Formulare & Zuschüsse</h3><p>Rente, Wohngeld, Anträge – ruhig erklärt (ohne Rechtsberatung).</p></article>
+        <article class="card"><h3>Haushalt & Organisation</h3><p>Sortieren, Strukturieren, Terminmanagement.</p></article>
+        <article class="card"><h3>Technik‑Hilfe</h3><p>Smartphone, Computer, Router, Smart‑TV – Schritt für Schritt.</p></article>
+        <article class="card"><h3>Spontan‑Service</h3><p>Kurzfristige Einsätze, flexible Zeiten.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="ablauf">
+      <h2 id="ablauf" style="font:800 28px/1.2 Montserrat, sans-serif; color:var(--primary); margin:0 0 14px">So funktioniert’s</h2>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><strong>Anruf</strong><p>Bedarf & Dringlichkeit klären.</p></div>
+        <div class="step"><div class="num">2</div><strong>Zuweisung</strong><p>Passende Hilfe aus der Region.</p></div>
+        <div class="step"><div class="num">3</div><strong>Unterwegs</strong><p>Schnell vor Ort oder per Video.</p></div>
+        <div class="step"><div class="num">4</div><strong>Abschluss</strong><p>Transparente Abrechnung, Quittung inkl.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap grid-2" aria-labelledby="gebiet" id="gebiet">
+      <div>
+        <h2 id="gebiet" style="font:800 28px/1.2 Montserrat, sans-serif; color:var(--primary); margin:0 0 14px">Einsatzgebiet</h2>
+        <p>Baden‑Baden, Rastatt, Gaggenau, Bühl und umliegende Gemeinden.</p>
+        <p style="color:var(--muted)">Hinweis: Karte ist ein Platzhalter – hier kann später eine interaktive OpenStreetMap/Leaflet‑Karte eingebunden werden.</p>
+      </div>
+      <div aria-hidden="true" style="background:white; border-radius:var(--radius); box-shadow:var(--shadow); aspect-ratio:4/3; display:grid; place-items:center">
+        <svg width="88%" viewBox="0 0 400 260">
+          <rect x="0" y="0" width="400" height="260" rx="12" fill="#ECF1EE"/>
+          <rect x="60" y="40" width="280" height="180" rx="8" fill="#D7E6E3"/>
+          <circle cx="200" cy="130" r="40" fill="var(--secondary)"/>
+          <text x="200" y="135" text-anchor="middle" font-family="Montserrat" font-size="16" fill="#fff">Baden‑Baden</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="wrap grid-2" id="kontakt" aria-labelledby="kontakt-title">
+      <div class="contact">
+        <h3 id="kontakt-title">Kontakt (24/7)</h3>
+        <div class="list">
+          <a href="tel:+497221000000" aria-label="Telefonnummer anrufen">"+iconInline("phone")+"<strong>07221 / 000000</strong></a>
+          <a href="https://wa.me/491720000000" target="_blank" rel="noopener" aria-label="WhatsApp öffnen">"+iconInline("whatsapp")+"<span>WhatsApp: +49 172 0000000</span></a>
+          <a href="mailto:hallo@baden-begleiter.de" aria-label="E-Mail schreiben">"+iconInline("mail")+"<span>hallo@baden-begleiter.de</span></a>
+          <span>"+iconInline("pin")+"<span>Musterstraße 1, 76530 Baden‑Baden</span></span>
+        </div>
+        <div style="margin-top:14px; font-size:14px; color:var(--muted)">Keine medizinische, steuerliche oder rechtliche Beratung. Dienstleistung außerhalb der Pflegeversicherung.</div>
+      </div>
+      <form class="contact" onsubmit="submitForm(event)" aria-label="Anfrageformular">
+        <h3>Jetzt Hilfe anfragen</h3>
+        <label>Ihr Name<br><input required name="name" placeholder="Vor- und Nachname" style="width:100%;padding:12px;border:1px solid #dbe0e6;border-radius:10px"></label>
+        <br><br>
+        <label>Telefon<br><input required name="phone" placeholder="z. B. 07221…" style="width:100%;padding:12px;border:1px solid #dbe0e6;border-radius:10px"></label>
+        <br><br>
+        <label>Ort<br><input name="city" placeholder="Baden‑Baden / Umgebung" style="width:100%;padding:12px;border:1px solid #dbe0e6;border-radius:10px"></label>
+        <br><br>
+        <label>Ihr Anliegen<br><textarea required name="msg" rows="4" placeholder="Kurz beschreiben…" style="width:100%;padding:12px;border:1px solid #dbe0e6;border-radius:10px"></textarea></label>
+        <br><br>
+        <button class="btn btn-primary" type="submit">Absenden</button>
+        <p id="form-note" style="font-size:14px;color:var(--muted);margin-top:8px">Platzhalter: Formular sendet aktuell keine Daten. Auf Wunsch binde ich E‑Mail/Netlify/Forms ein.</p>
+      </form>
+    </section>
+  </main>
+
+  <div class="stickybar" aria-label="Schnellzugriff mobil">
+    <button class="btn btn-ghost" onclick="callNow()">Anrufen</button>
+    <button class="btn btn-ghost" onclick="openWhatsApp()">WhatsApp</button>
+    <button class="btn btn-primary" onclick="openRequest()">Anfrage</button>
+  </div>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <small>© <span id="year"></span> Baden Begleiter — Alltagshilfe für Baden‑Baden & Umgebung</small>
+      <small><a href="#">Datenschutz</a> • <a href="#">AGB</a></small>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToId(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
+    function callNow(){ window.location.href = 'tel:+497221000000'; }
+    function openWhatsApp(){ window.open('https://wa.me/491720000000','_blank'); }
+    function openRequest(){ scrollToId('kontakt'); }
+    function submitForm(e){ e.preventDefault(); const d=new FormData(e.target); const payload=Object.fromEntries(d.entries());
+      const preview = `Vielen Dank, ${payload.name||'—'}!\nWir rufen Sie zeitnah unter ${payload.phone||'—'} zurück.`;
+      alert(preview); }
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Inline icon factories (rendered server‑less)
+    function icon(kind){
+      const stroke = 'currentColor';
+      const base = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="'+stroke+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+      const end = '</svg>';
+      const p = {
+        clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        care:'<path d="M20.8 10.4c0 5-8.8 9-8.8 9s-8.8-4-8.8-9a5.2 5.2 0 0 1 9-3.3A5.2 5.2 0 0 1 20.8 10.4z"/>',
+        paper:'<rect x="4" y="3" width="12" height="18" rx="2"/><path d="M8 7h4M8 11h6M8 15h6"/>',
+        cart:'<circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/><path d="M3 3h2l.4 2M7 13h10l3-8H6.4"/>',
+        phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.31 1.77.57 2.61a2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 7 7l.56-1.23a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.61.57A2 2 0 0 1 22 16.92z"/>',
+        whatsapp:'<path d="M20 11.5A8.5 8.5 0 1 1 11.5 3a8.5 8.5 0 0 1 8.5 8.5Z"/><path d="M7 19l1.5-4.5"/><path d="M8 9c1 3 4 5 6 5"/>',
+        mail:'<path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/>',
+        pin:'<path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/>'
+      };
+      return base + (p[kind]||'') + end;
+    }
+    function iconInline(kind){ return '<span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;color:var(--primary)">'+icon(kind)+'</span>'; }
+  </script>
+</body>
+</html>
